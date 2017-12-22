@@ -1,5 +1,6 @@
+#
 class StringCalculator
   def self.add(value)
-    value.to_i
+    value.split(',').inject(0) { |mem, num| mem + num.to_i }
   end
 end
