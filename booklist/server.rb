@@ -1,6 +1,7 @@
 # server.rb
 require 'sinatra'
 require 'mongoid'
+require 'sinatra/namespace'
 
 # DB Setup
 Mongoid.load! "mongoid.config"
@@ -24,4 +25,14 @@ end
 # Endpoints
 get '/ ' do
   'Welcome to BookList!'
+end
+
+namespace '/api/v1' do
+  before do
+    content_type 'application/json'
+  end
+
+  get '/books' do
+    Book.all.to_json
+  end
 end
