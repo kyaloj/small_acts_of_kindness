@@ -93,5 +93,17 @@ namespace '/api/v1' do
       status 422
       body BookSerializer.new(book).to_json
     end
-  end  
+  end
+  
+  patch '/books/:id' do |id|
+    book = Book.where(id: id).first
+    halt(404, { message:'Book Not Found'}.to_json) unless book
+    if book.update_attributes(json_params)
+      BookSerializer.new(book).to_json
+    else
+      status 422
+      body BookSerializer.new(book).to_json
+    end
+  end
+
 end
