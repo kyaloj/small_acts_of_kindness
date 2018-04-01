@@ -1,20 +1,30 @@
 require 'sinatra'
+require 'sinatra/reloader' if development?
 
 get '/' do
     erb :home
 end
 
+get '/about' do
+    erb :about
+end
+
+get '/contact' do
+    erb :contact
+end
+
 __END__
-@@home
+@@layout
+<% title="Songs By Sinatra" %>
 <!doctype html>
 <html lang="en">
     <head>
-        <title>Songs By Sinatra</title>
+        <title><%= title %></title>
         <meta charset="utf-8">
     </head>
     <body>
         <header>
-            <h1>Songs By Sinatra</h1>
+            <h1><%= title %></h1>
             <nav>
                 <ul>
                     <li><a href="/" title="Home">Home</a></li>
@@ -24,10 +34,19 @@ __END__
             </nav>
         </header>
         <section>
-            <p>
-                Welcome to this website all about the songs of the great
-                Frank Sinatra
-            </p>
+           <%= yield %>
         </section>
     </body>
 </html>
+
+@@home
+<p>
+Welcome to this website all about the songs of the great
+Frank Sinatra
+</p>
+
+@@about
+  <p>This site is a demonstration of how to build a website using Sinatra.</p>
+
+@@contact
+<p>You can contact me by sending an email to me at gmail.com</p>
