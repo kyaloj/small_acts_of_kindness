@@ -7,10 +7,6 @@ html lang="en"
     body
         header
             h1==  @title || 'Songs By Sinatra'
-            nav
-                ul
-                    li <a href="/" title="Home">Home</a>
-                    li <a href="/about" title="About">About</a>
-                    li <a href="/contact" title="Contact">Contact</a>
-                section
-                    == yield
+            == slim :nav
+        section
+            == yield
