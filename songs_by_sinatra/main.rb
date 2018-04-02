@@ -1,18 +1,20 @@
 require 'sinatra'
 require 'sinatra/reloader' if development?
+require 'slim'
 
 get '/' do
-  erb :home
+  slim :home
 end
 
 get '/about' do
-  erb :about
+  @title = "All About This Website"
+  slim :about
 end
 
 get '/contact' do
-  erb :contact
+  slim :contact
 end
 
 not_found do
-  erb :not_found
+  slim :not_found
 end
