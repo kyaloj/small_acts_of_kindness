@@ -48,3 +48,10 @@ put '/songs/:id' do
     song.update(params[:song])
     redirect to("/songs/#{song.id}")
 end
+
+delete '/songs/:id' do
+    Song.get(params[:id]).destroy
+    redirect to('/songs')
+end
+
+
