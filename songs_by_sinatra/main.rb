@@ -3,6 +3,7 @@ require 'sinatra/reloader' if development?
 require 'slim'
 require 'sass'
 require './song'
+require 'sinatra/flash'
 
 configure do
   set :session_secret, 'arsndsnfsjdnjnvnvdjfnvjfjsdndsjvndvjnjnjnjdjj'
@@ -19,11 +20,11 @@ helpers do
   end
 
   def current?(path='/')
-    (request.path==path || request.path==path+'/') ? "current" : nil
+    request.path == path || request.path == path+'/' ? 'current' : nil
   end
 
   def set_title
-    @title ||= "Songs By Sinatra"
+    @title ||= 'Songs By Sinatra'
   end
 end
 
@@ -31,14 +32,14 @@ before do
   set_title
 end
 
-get('/styles.css'){ scss :styles }
+get('/styles.css') { scss :styles }
 
 get '/' do
   slim :home
 end
 
 get '/about' do
-  @title = "All About This Website"
+  @title = 'All About This Website'
   slim :about
 end
 
