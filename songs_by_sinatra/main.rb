@@ -4,6 +4,7 @@ require 'slim'
 require 'sass'
 require './song'
 require 'sinatra/flash'
+require './sinatra/auth'
 
 configure do
   set :session_secret, 'arsndsnfsjdnjnvnvdjfnvjfjsdndsjvndvjnjnjnjdjj'

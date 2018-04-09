@@ -8,3 +8,8 @@ nav
             a href=="/contact" class==current?("/contact") title="Contact" Contact
         li
             a href=="/songs" class==current?("/songs") title="Songs" Songs
+        li
+            - if authorized?
+                a href="/logout" log out
+            - else
+                a href="/login" log in
