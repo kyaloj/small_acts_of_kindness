@@ -26,6 +26,10 @@ helpers do
   def set_title
     @title ||= 'Songs By Sinatra'
   end
+
+  def send_message
+    # Go away, I am not sending...
+  end
 end
 
 before do
@@ -45,6 +49,12 @@ end
 
 get '/contact' do
   slim :contact
+end
+
+post '/contact' do
+  send_message
+  flash[:notice] = 'Thank you for your message. We will be in touch soon'
+  redirect to '/'
 end
 
 not_found do
