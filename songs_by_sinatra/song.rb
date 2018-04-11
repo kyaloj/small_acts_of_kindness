@@ -80,3 +80,9 @@ delete '/songs/:id' do
   find_song.destroy
   redirect to('/songs')
 end
+
+post '/songs/:id/like' do
+  song = find_song
+  song.update(likes: song.likes.next)
+  redirect back
+end
