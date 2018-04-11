@@ -5,6 +5,7 @@ require 'sass'
 require './song'
 require 'sinatra/flash'
 require './sinatra/auth'
+require 'coffee-script'
 
 configure do
   set :session_secret, 'arsndsnfsjdnjnvnvdjfnvjfjsdndsjvndvjnjnjnjdjj'
@@ -38,6 +39,7 @@ before do
 end
 
 get('/styles.css') { scss :styles }
+get('/javascripts/application.js') { coffee :application }
 
 get '/' do
   slim :home
