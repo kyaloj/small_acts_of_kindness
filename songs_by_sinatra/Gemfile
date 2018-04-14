@@ -1,5 +1,8 @@
 source :rubygems
 gem "sinatra"
+gem 'sinatra-flash'
+gem 'pony'
+gem 'coffee-script'
 gem "slim"
 gem "sass"
 gem "dm-core"
