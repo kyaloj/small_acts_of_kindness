@@ -5,10 +5,12 @@ require 'sinatra/flash'
 require 'pony'
 require './sinatra/auth'
 require 'coffee-script'
+require './asset-handler'
 
 class Website < Sinatra::Base
   register Sinatra::Auth
   register Sinatra::Flash
+  use AssetHandler
 
   configure do
     set :session_secret, 'arsndsnfsjdnjnvnvdjfnvjfjsdndsjvndvjnjnjnjdjj'
@@ -38,9 +40,6 @@ class Website < Sinatra::Base
   def send_message
     # Go away, I am not sending...
   end
-  
-  get('/styles.css') { scss :styles }
-  get('/javascripts/application.js') { coffee :application }
   
   get '/' do
     slim :home

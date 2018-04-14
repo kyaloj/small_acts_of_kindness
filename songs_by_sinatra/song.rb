@@ -38,8 +38,6 @@ end
 
 class SongController < Sinatra::Base
   enable :method_override
-  register Sinatra::Flash
-  register Sinatra::Auth
 
   helpers SongHelpers
 
