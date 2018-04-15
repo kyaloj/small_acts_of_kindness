@@ -7,7 +7,7 @@ module Sinatra
         session[:admin]
       end
       def protected!
-        halt 401,slim(:unauthorized) unless authorized?
+        halt 401, slim(:unauthorized) unless authorized?
       end
     end
 

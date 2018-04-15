@@ -37,8 +37,9 @@ module SongHelpers
 end
 
 class SongController < Sinatra::Base
+  register Sinatra::Auth
+  register Sinatra::Flash
   enable :method_override
-
   helpers SongHelpers
 
   configure :development do
