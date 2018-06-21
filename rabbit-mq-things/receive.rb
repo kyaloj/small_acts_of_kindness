@@ -6,10 +6,12 @@ connection.start
 
 channel = connection.create_channel
 queue = channel.queue('hello')
+durable_queue = channel.queue('durable_queue', durable: true)
+channel.prefetch(1)
 
 begin
   puts ' [*] Waiting for messages. To exit press CTRL+C'
-  queue.subscribe(manual_ack: true, block: true) do |_delivery_info, _properties, body|
+  durable_queue.subscribe(manual_ack: true, block: true) do |delivery_info, _properties, body|
     puts " [x] Received #{body}"
     # imitate some work
     sleep body.count('.').to_i
