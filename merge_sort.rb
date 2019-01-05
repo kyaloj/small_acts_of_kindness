@@ -6,12 +6,7 @@ def merge_sort(arr)
 
   results = []
   while [first_arr, last_arr].none?(&:empty?)
-    p "stuff"
-    p first_arr
-    p last_arr
     results << (first_arr[0] <= last_arr[0] ? first_arr.shift : last_arr.shift)
-    p 'results'
-    p results
   end
 
   results + first_arr + last_arr
