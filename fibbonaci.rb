@@ -1,3 +1,5 @@
+require 'benchmark'
+
 def fibbonaci(val)
   nth = val.to_i
   return 1 if nth < 2
@@ -7,4 +9,8 @@ def fibbonaci(val)
   nums.last
 end
 
-p fibbonaci(ARGV[0])
+time = Benchmark.realtime do
+  p fibbonaci(ARGV[0])
+end
+
+puts "Time: #{time}"
