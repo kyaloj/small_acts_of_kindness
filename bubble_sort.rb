@@ -1,26 +1,15 @@
 def bubble_sort(arr)
-  steps = 0
-  current_iteration = 1
   arr.length.times do
-    index = 0
     swapped = false
-    arr.length.times do
-      if index == arr.length - 1
-        index = 0
-        break
-      end
+    0.upto(arr.length - 2) do |index| # last elm and 2nd last already swapped
       if arr[index] > arr[index.next]
         arr[index], arr[index.next] = arr[index.next], arr[index]
         swapped = true
       end
-      index += 1
-      steps += 1
     end
-    p steps
     break unless swapped
-    current_iteration += 1
   end
   arr
 end
 
-p bubble_sort([1, 2, 3, 5, 6, 7, 8, 9, 100])
+p bubble_sort([1, 3, 3, 2, 1, 3, 5, 7, 8, 9])
