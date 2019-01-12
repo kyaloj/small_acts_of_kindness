@@ -56,11 +56,3 @@ Benchmark.bm do |benchmark|
   benchmark.report("test_array include"){ (1..5_000).each {|n| arr.include? n } }
   benchmark.report("binary tree search"){ (1..5_000).each {|n| tree.include? n } }
 end
-# array_time = Benchmark.realtime do
-#   p arr.include?(30)
-# end
-# puts "Array Search Time: #{array_time}"
-
-
-
-
